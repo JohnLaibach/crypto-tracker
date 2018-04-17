@@ -1,26 +1,22 @@
-export function listHasErrored(bool) {
-    return {
-        type: 'LIST_HAS_ERRORED',
-        hasErrored: bool
-    };
-}
+import { LIST_HAS_ERRORED, LIST_IS_LOADING, LIST_FETCH_DATA_SUCCESS} from './actionTypes';
 
-export function listIsLoading(bool) {
-    return {
-        type: 'LIST_IS_LOADING',
-        isLoading: bool
-    }
-}
+export const listHasErrored = hasErrored => ({
+    type: LIST_HAS_ERRORED,
+    hasErrored
+});
 
-export function listFetchDataSuccess(currencies) {
-    return {
-        type: 'LIST_FETCH_DATA_SUCCESS',
-        currencies: currencies
-    }
-}
+export const listIsLoading = isLoading => ({
+    type: LIST_IS_LOADING,
+    isLoading
+});
 
-export function listFetchData(url) {
-    return (dispatch) => {
+export const listFetchDataSuccess = currencies => ({
+    type: LIST_FETCH_DATA_SUCCESS,
+    currencies: currencies
+});
+
+export const listFetchData = url => (
+    (dispatch) => {
         dispatch(listIsLoading(true));
 
         fetch(url)
@@ -37,4 +33,4 @@ export function listFetchData(url) {
             .then((currencies) => dispatch(listFetchDataSuccess(currencies)))
             .catch(() => dispatch(listHasErrored(true)));
     }
-}
+);

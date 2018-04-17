@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 
 import { listFetchData } from '../actions/list';
 import CurrencyList from '../components/CurrencyList';
+import { APIUrl } from '../configs/API';
 
-
-const APIUrl = 'https://api.coinmarketcap.com/v1/ticker/?limit=100&convert=';
 
 class List extends Component {
 
     componentDidMount() {
-        const url = `${APIUrl}${this.props.convertCurrency}`;
+        const url = `${APIUrl}/?limit=100&convert=${this.props.convertCurrency}`;
         this.props.onRefresh(url);
     }
 
@@ -33,6 +32,7 @@ class List extends Component {
             </React.Fragment>
         );
     }
+
 }
 
 const mapStateToProps = state => {

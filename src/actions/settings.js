@@ -1,6 +1,7 @@
-export function settingsSetCurrency(symbol) {
-    return {
-        type: 'SETTINGS_SET_CURRENCY',
-        convertCurrency: symbol
-    };
-}
+import { SETTINGS_SET_CURRENCY } from './actionTypes';
+
+
+export const settingsSetCurrency = symbol => ({
+    type: SETTINGS_SET_CURRENCY,
+    convertCurrency: symbol
+});

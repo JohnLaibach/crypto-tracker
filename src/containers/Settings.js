@@ -36,6 +36,7 @@ class Settings extends Component {
             </React.Fragment>
         );
     }
+    
 }
 
 const mapStateToProps = state => {

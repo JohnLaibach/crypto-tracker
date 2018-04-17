@@ -1,26 +1,23 @@
-export function detailsHasErrored(bool) {
-    return {
-        type: 'DETAILS_HAS_ERRORED',
-        hasErrored: bool
-    };
-}
+import { DETAILS_HAS_ERRORED, DETAILS_IS_LOADING, DETAILS_FETCH_DATA_SUCCESS } from './actionTypes';
 
-export function detailsIsLoading(bool) {
-    return {
-        type: 'DETAILS_IS_LOADING',
-        isLoading: bool
-    }
-}
 
-export function detailsFetchDataSuccess(details) {
-    return {
-        type: 'DETAILS_FETCH_DATA_SUCCESS',
-        details: details
-    }
-}
+export const detailsHasErrored = hasErrored => ({
+    type: DETAILS_HAS_ERRORED,
+    hasErrored
+});
 
-export function detailsFetchData(url) {
-    return (dispatch) => {
+export const detailsIsLoading = isLoading => ({
+    type: DETAILS_IS_LOADING,
+    isLoading
+});
+
+export const detailsFetchDataSuccess = details => ({
+    type: DETAILS_FETCH_DATA_SUCCESS,
+    details: details
+});
+
+export const detailsFetchData = url => (
+    (dispatch) => {
         dispatch(detailsIsLoading(true));
 
         fetch(url)
@@ -37,4 +34,4 @@ export function detailsFetchData(url) {
             .then((details) => dispatch(detailsFetchDataSuccess(details[0])))
             .catch(() => dispatch(detailsHasErrored(true)));
     }
-}
+);

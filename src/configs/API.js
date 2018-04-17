@@ -1,0 +1,1 @@
+export const APIUrl = 'https://api.coinmarketcap.com/v1/ticker';

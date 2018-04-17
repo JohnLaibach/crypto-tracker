@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import { detailsFetchData } from '../actions/details';
 import CurrencyDetails from '../components/CurrencyDetails';
+import { APIUrl } from '../configs/API';
 
-const APIUrl = 'https://api.coinmarketcap.com/v1/ticker';
 
 class Details extends Component {
 
@@ -32,6 +32,7 @@ class Details extends Component {
             </React.Fragment>
         );
     }
+
 }
 
 const mapStateToProps = state => {

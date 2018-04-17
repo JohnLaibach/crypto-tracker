@@ -1,7 +1,8 @@
 import React from "react";
 
 
-const CurrencyDetails = ({ details, convertCurrency }) => 
+const CurrencyDetails = ({ details, convertCurrency }) =>
+ 
     <table style={{ width: '100%' }}>
         <thead>
             <tr>
