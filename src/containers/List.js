@@ -22,7 +22,7 @@ class List extends Component {
             return <p>Loading...</p>
         }
 
-        const url = `${APIUrl}${this.props.convertCurrency}`;
+        const url = `${APIUrl}/?limit=100&convert=${this.props.convertCurrency}`;
 
         return (
             <React.Fragment>
